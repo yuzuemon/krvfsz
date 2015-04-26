@@ -26,3 +26,10 @@ node_modules
 
 # Users Environment Variables
 .lock-wscript
+
+
+.bundle/
+.ruby-version
+.sass-cache/
+vendor/
+
