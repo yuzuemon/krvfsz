@@ -8,12 +8,14 @@ class App < Sinatra::Base
     haml params[:captures].first.to_sym
   end
 
-  # **.scss|coffee to **.css|js
-  get %r{^/(stylesheets|javascripts)/(.*)\.(css|js)$} do
-    dir = params[:captures][0] == 'stylesheets' ? 'scss' : 'coffee'
-    file = params[:captures][1]
-    method = params[:captures][2] == 'css' ? :scss : :coffee
-    send(method, :"#{ dir }/#{ file }")
+  # **.scss to **.css
+  get '/stylesheets/main.css' do
+    scss :'scss/main'
+  end
+
+  # **.coffee to **.js
+  get '/javascripts/main.js' do
+    coffee :'coffee/main'
   end
 
 end
